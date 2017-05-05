@@ -157,6 +157,7 @@ export default class SwipeCards extends Component {
 
     this._panResponder = PanResponder.create({
       onStartShouldSetPanResponderCapture: (e, gestureState) => {
+        if (gestureState.dx === 0 && gestureState.dy === 0) return false;
         this.props.onDragStart()
         this.lastX = gestureState.moveX;
         this.lastY = gestureState.moveY;
